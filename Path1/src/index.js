@@ -1,39 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-// Stateless functional Component
-// always returns JSX
-function Books() {
+// import './index.css';
+// Props (Properties)=Arguments to Components
+
+const People = () => {
     return (
-        <section className='books'>
-            <Book />
-            <Book />
-            <Book />
-            <Book />
-            <Book />
+        <section>
+            <Person name='Arihant' job='Full Stack Developer' />
+            <Person name='Aryan' job='Security Architect' />
+            <Person name='Shorya' job='Database Admin' />
+            <Person name='Kaushal' job='AWS Architect' />
         </section>
     );
-}
-const Book = () => {
+};
+
+const Person = (props) => {
+    console.log(props);
+
     return (
-        <article className='book'>
-            <CoverImage />
-            <Title />
-            <Author />
+        <article>
+            <h1>{props.name}</h1>
+            <p>{props.job}</p>
+            <hr />
         </article>
     );
 };
-const CoverImage = () => (
-    <img
-        width='300'
-        src='https://images-eu.ssl-images-amazon.com/images/I/41+6Zd6yPgL._AC_US327_FMwebp_QL65_.jpg'
-        alt='Want'
-    />
-);
-const Title = () => <h1 style={{ fontSize: '2rem', color: 'red' }}>Want</h1>;
-const authorStyle = {
-    letterSpacing: '10px',
-    color: 'green',
-};
-const Author = () => <p style={authorStyle}>By Cindy Pon</p>;
-ReactDOM.render(<Books />, document.getElementById('root'));
+
+ReactDOM.render(<People />, document.getElementById('root'));
