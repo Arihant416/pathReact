@@ -3,24 +3,42 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 // Props (Properties)=Arguments to Components
 
+//Destructuring
 const People = () => {
+    const friends = [
+        { name: 'John', job: 'Developer', age: 23, company: 'Apple' },
+        { name: 'Arihant', job: 'MERN Dev', age: 21, company: 'Microsoft' },
+        {
+            name: 'Shorya',
+            job: 'Senior Full stack Developer',
+            age: 22,
+            company: 'Google',
+        },
+    ];
     return (
         <section>
-            <Person name='Arihant' job='Full Stack Developer' />
-            <Person name='Aryan' job='Security Architect' />
-            <Person name='Shorya' job='Database Admin' />
-            <Person name='Kaushal' job='AWS Architect' />
+            <Person person={friends[0]} />
+            <Person person={friends[1]} />
+            <Person person={friends[2]} />
         </section>
     );
 };
 
-const Person = (props) => {
-    console.log(props);
+// const showPerson = ({ name, age }) => {
+//     console.log(name, age);
+// };
+// showPerson(person);
+
+const Person = ({ person: { name, job, age, company } }) => {
+    console.log(name);
+    // const { name, job, age, company } = props.person;
 
     return (
         <article>
-            <h1>{props.name}</h1>
-            <p>{props.job}</p>
+            <h1>{name}</h1>
+            <p>{job}</p>
+            <p>{age}</p>
+            <p>{company}</p>
             <hr />
         </article>
     );
