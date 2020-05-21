@@ -1,6 +1,6 @@
 //State, this.setState= hold/access/change data of Component
 //Props are read only
-import React, { Component } from 'react';
+import React from 'react';
 import BookList from './BookList';
 const App = () => {
     return (
