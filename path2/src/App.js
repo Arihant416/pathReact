@@ -2,10 +2,10 @@
 //Props are read only
 import React from 'react';
 import BookList from './BookList';
+import './App.css';
 const App = () => {
     return (
         <section>
-            <h1>This is our Application</h1>
             <BookList />
         </section>
     );

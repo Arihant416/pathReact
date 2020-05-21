@@ -1,23 +1,24 @@
 const books = [
     {
         id: 1,
-        book: 'Book number 1',
-        author: 'John Doe',
+        img:
+            'https://books.google.com/books/content/images/frontcover/qBlJNb9dhEkC?fife=w200-h300',
+        title: 'Catch-22',
+        author: 'Joseph Heller',
     },
     {
         id: 2,
-        book: 'Book number 2',
-        author: 'Bob Doe',
+        img:
+            'https://books.google.com/books/content/images/frontcover/377QAwAAQBAJ?fife=w200-h300',
+        title: 'The Invisible Man',
+        author: 'HG Wells',
     },
     {
         id: 3,
-        book: 'Book number 3',
-        author: 'Ryan Doe',
-    },
-    {
-        id: 4,
-        book: 'Book number 4',
-        author: 'Smilga Instructor',
+        img:
+            'https://books.google.com/books/content/images/frontcover/DADFDgAAQBAJ?fife=w200-h300',
+        title: 'Sandstorm',
+        author: 'Francine Zapater',
     },
 ];
 export default books;
