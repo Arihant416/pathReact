@@ -1,40 +1,14 @@
-//Stateless functional Components
-//Class Based Components
-//State , Life cycle Methods
-//React Hoooks
-//Classes - Syntactical Sugar for Constructor Functions
-//Subclass of Component
-//Extends from Component Class
-//Inherits Functionality
-// Component class is used to transfer from basic E6 class
+//State, this.setState= hold/access/change data of Component
+//Props are read only
 import React, { Component } from 'react';
-import { name, age, person } from './data';
-import Banner from './Components/Header/Banner';
-class App extends Component {
-    render() {
-        return (
-            <section>
-                <Banner />
-                <p>This is my Content</p>
-                <p>{name}</p>
-                <p>{age}</p>
-                <p>{person.name}</p>
-            </section>
-        );
-    }
-}
-
-// const App = () => {
-//     return (
-//         <section>
-//             <p>This is my content</p>
-//             <Banner />
-//             <p>{name}</p>
-//             <p>{age}</p>
-//             <p>{person.name}</p>
-//             <p>{person.age}</p>
-//         </section>
-//     );
-// };
+import BookList from './BookList';
+const App = () => {
+    return (
+        <section>
+            <h1>This is our Application</h1>
+            <BookList />
+        </section>
+    );
+};
 
 export default App;
