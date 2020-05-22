@@ -4,14 +4,14 @@ import booksData from './BookData';
 export default class BookList extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             books: booksData,
         };
     }
 
-    handleDelete = () => {
-        console.log(`I am from parent Component`);
+    handleDelete = (id) => {
+        const sortedBooks = this.state.books.filter((item) => item.id !== id);
+        this.setState({ books: sortedBooks });
     };
 
     render() {
