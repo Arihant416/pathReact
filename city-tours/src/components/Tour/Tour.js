@@ -2,6 +2,28 @@ import React, { Component } from 'react';
 import './tour.scss';
 export default class Tour extends Component {
     render() {
-        return <h1>Hello From Tour</h1>;
+        const { id, city, img, name, info } = this.props.tour;
+        const { removeTour } = this.props;
+        return (
+            <article className='tour'>
+                <div className='img-container'>
+                    <img src={img} alt='image of the tour' />
+                    <span className='close-btn'>
+                        <i className='fa fa-window-close'></i>
+                    </span>
+                </div>
+                <div className='tour-info'>
+                    <h3>{city}</h3>
+                    <h4>{name}</h4>
+                    <h5>
+                        Info{' '}
+                        <span>
+                            <i className='fa fa-caret-square-down'></i>
+                        </span>
+                    </h5>
+                    <p>{info}</p>
+                </div>
+            </article>
+        );
     }
 }
