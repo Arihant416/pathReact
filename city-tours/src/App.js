@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.scss';
+import Navbar from './components/Navbar/Navbar';
 export class App extends Component {
     render() {
-        return <h1>Our current App</h1>;
+        return (
+            <Fragment>
+                <Navbar />
+            </Fragment>
+        );
     }
 }
 
