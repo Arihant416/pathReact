@@ -14,6 +14,11 @@ const Person = ({ img, name, age }) => {
         </article>
     );
 };
+Person.propTypes = {
+    img: PropTypes.string,
+    name: PropTypes.string,
+    age: PropTypes.number,
+};
 class PersonList extends Component {
     state = {
         people: [
@@ -21,13 +26,13 @@ class PersonList extends Component {
                 id: 1,
                 img: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
                 name: 'Arihant',
-                age: '24',
+                age: 24,
             },
             {
                 id: 2,
                 img: 'https://randomuser.me/api/portraits/thumb/men/74.jpg',
                 name: 'Rishab',
-                age: '22',
+                age: 23,
             },
         ],
     };
