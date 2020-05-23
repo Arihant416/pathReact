@@ -2,22 +2,28 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './App.css';
-//Install as Seperate module prop-types
-//Built in type checking to validate props
-//Array bool func number object string symbol
-const Person = ({ img, name, age }) => {
+//Props not passed at all
+//isRequired defaultProp
+const Person = ({ img, name, age, info }) => {
     return (
         <article>
             <img src={img} alt='person' />
             <h4>Name : {name}</h4>
-            <h5>Age : {age}</h5>
+            <h4>Age : {age}</h4>
+            <h4>Info : {info}</h4>
         </article>
     );
 };
 Person.propTypes = {
-    img: PropTypes.string,
-    name: PropTypes.string,
-    age: PropTypes.number,
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
+};
+Person.defaultProps = {
+    img: 'https://randomuser.me/api/portraits/thumb/men/1.jpg',
+    name: 'Johny',
+    age: '30',
+    info: 'Default Info',
 };
 class PersonList extends Component {
     state = {
@@ -34,6 +40,13 @@ class PersonList extends Component {
                 name: 'Rishab',
                 age: 23,
             },
+            {
+                id: 3,
+                // img: 'https://randomuser.me/api/portraits/thumb/men/69.jpg',
+                name: 'XYZ',
+                age: 23,
+                info: 'Some info about xyz',
+            },
         ],
     };
     render() {
@@ -45,6 +58,7 @@ class PersonList extends Component {
                         img={person.img}
                         name={person.name}
                         age={person.age}
+                        info={person.info}
                     />
                 ))}
             </section>
