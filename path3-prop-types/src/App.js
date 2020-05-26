@@ -1,62 +1,52 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import './App.css';
-//Props not passed at all
-//isRequired defaultProp
-const Person = ({ person: { img, name, age, info } }) => {
-    return (
-        <article>
-            <img src={img} alt='person' />
-            <h4>Name : {name}</h4>
-            <h4>Age : {age}</h4>
-            <h4>Info : {info || 'Default Info about the Person'}</h4>
-        </article>
-    );
-};
-Person.propTypes = {
-    person: PropTypes.shape({
-        img: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        age: PropTypes.number.isRequired,
-        info: PropTypes.string.isRequired,
-    }),
-};
-Person.defaultProps = {
-    person: {
-        info: 'Default Info about the Person',
-    },
-};
-class PersonList extends Component {
+//Controlled Uncontrolled Inputs
+//JS
+//Const input= document.getElementById('my Text')
+//Const inputValue=input.value
+//React
+//value,onChange
+class Form extends Component {
     state = {
-        people: [
-            {
-                id: 1,
-                img: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
-                name: 'Arihant',
-                age: 24,
-            },
-            {
-                id: 2,
-                img: 'https://randomuser.me/api/portraits/thumb/men/74.jpg',
-                name: 'Rishab',
-                age: 23,
-            },
-            {
-                id: 3,
-                img: 'https://randomuser.me/api/portraits/thumb/men/74.jpg',
-                name: 'XYZ',
-                age: 23,
-                info: 'Some info about xyz',
-            },
-        ],
+        firstName: '',
+        lastName: '',
+        people: [],
+    };
+    handleChange = (e) => {
+        // if (e.target.name === 'firstName') {
+        //     const textVal = e.target.value;
+        //     this.setState({
+        //         firstName: textVal,
+        //     });
+        // }
+        this.setState({
+            [e.target.name]: [e.target.value],
+        });
     };
     render() {
         return (
             <section>
-                {this.state.people.map((person) => (
-                    <Person key={person.id} person={person} />
-                ))}
+                <article>
+                    <form>
+                        <input
+                            type='text'
+                            name='firstName'
+                            value={this.state.firstName}
+                            onChange={this.handleChange}
+                        />
+                        <input
+                            type='text'
+                            name='lastName'
+                            value={this.state.lastName}
+                            onChange={this.handleChange}
+                        />
+                        <button type='submit'>Submit</button>
+                    </form>
+                </article>
+                <article>
+                    <h1>People</h1>
+                    <div>{this.state.people}</div>
+                </article>
             </section>
         );
     }
@@ -64,7 +54,7 @@ class PersonList extends Component {
 
 class App extends Component {
     render() {
-        return <PersonList />;
+        return <Form />;
     }
 }
 
