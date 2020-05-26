@@ -7,60 +7,28 @@ import './App.css';
 //React
 //value,onChange
 class Form extends Component {
-    state = {
-        firstName: '',
-        lastName: '',
-        people: [],
-    };
-    handleChange = (e) => {
-        // if (e.target.name === 'firstName') {
-        //     const textVal = e.target.value;
-        //     this.setState({
-        //         firstName: textVal,
-        //     });
-        // }
-        this.setState({
-            [e.target.name]: [e.target.value],
-        });
-    };
     handleSubmit = (e) => {
         e.preventDefault();
-        const firstName = this.state.firstName;
-        const lastName = this.state.lastName;
-        // console.log(firstName + lastName);
-        if (firstName.length > 0 && lastName.length > 0) {
-            const person = ` ${firstName} ${lastName}`;
-            this.setState({
-                people: [...this.state.people, person],
-                firstName: '',
-                lastName: '',
-            });
-        }
+        const name = this.refs.myName;
+        const nameVal = name.value;
+        const email = this.email.value;
+
+        const text = this.refs.myText;
+        text.style.color = 'red';
+        console.log(email, nameVal, text);
     };
     render() {
         return (
             <section>
-                <article>
-                    <form onSubmit={this.handleSubmit}>
-                        <input
-                            type='text'
-                            name='firstName'
-                            value={this.state.firstName}
-                            onChange={this.handleChange}
-                        />
-                        <input
-                            type='text'
-                            name='lastName'
-                            value={this.state.lastName}
-                            onChange={this.handleChange}
-                        />
-                        <button type='submit'>Submit</button>
-                    </form>
-                </article>
-                <article>
-                    <h1>People</h1>
-                    <div>{this.state.people}</div>
-                </article>
+                <form onSubmit={this.handleSubmit}>
+                    <input type='text' ref='myName' />
+                    <input
+                        type='email'
+                        ref={(orange) => (this.email = orange)}
+                    />
+                    <button type='submit'>Submit</button>
+                </form>
+                <p ref='myText'>Hello world</p>
             </section>
         );
     }
