@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-
-
+import uuid from 'uuid';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ToDoInput from './components/ToDoInput';
+import ToDoList from './components/ToDoList';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Hello from Todo App</h1>
+      <div>
+        <div className="container">
+          <div className="row">
+            <ToDoInput />
+            <ToDoList />
+          </div>
+        </div>
       </div>
     )
   }
