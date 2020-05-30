@@ -30,9 +30,12 @@ class App extends Component {
       editItem: false
     })
   }
-  clearList = () => { console.log('Clear List Method') }
+  clearList = () => { this.setState({ items: [] }) }
   handleDelete = (id) => {
-    console.log(`Handle Delete ${id}`)
+    const arr = this.state.items.filter(item => item.id !== id);
+    this.setState({
+      items: arr
+    })
   }
   handleEdit = (id) => { console.log(`Handle Edit ${id}`) }
   render() {
