@@ -7,7 +7,7 @@ export default class ToDoList extends Component {
          <ul className="list-group list-group-flush my-5">
             <h3
                className="text-capitalize text-center"
-               style={{ color: "Purple", fontFamily: "Open Sans" }}>
+               style={{ color: "black", fontFamily: "Open Sans" }}>
                {items.length > 0 ? <div>List of Items<span>😃</span></div> : <div>No items to display<span>🎭</span></div>}
             </h3>
             {items.map(item => { return (<ToDoItem key={item.id} title={item.title} handleDelete={() => handleDelete(item.id)} handleEdit={() => handleEdit(item.id)} />) })}

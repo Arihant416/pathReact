@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ToDoInput from './components/ToDoInput';
 import ToDoList from './components/ToDoList';
+import './App.css';
 class App extends Component {
 
   state = {
@@ -50,17 +51,20 @@ class App extends Component {
   render() {
     // console.log(this.state)
     return (
+
       <div className="container">
         <div className="row">
           <div className="col-8 mx-auto col-md-6 mt-5">
             <h3 className="text-capitalize text-center" style={{ color: "teal" }}>
-              React ToDo App<span>❤</span>
+              React ToDo App <span>❤</span>
             </h3>
             <ToDoInput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit} editItem={this.state.editItem} />
             <ToDoList items={this.state.items} clearList={this.clearList} handleDelete={this.handleDelete} handleEdit={this.handleEdit} />
           </div>
         </div>
       </div>
+
+
     )
   }
 }
