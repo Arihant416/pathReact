@@ -6,16 +6,29 @@ import ToDoList from './components/ToDoList';
 class App extends Component {
 
   state = {
-    items: [{ id: 1, title: 'Wake Up bruh!!' }, { id: 2, title: 'Make Breakfast!!' }],
+    items: [],
     id: uuid(),
     item: '',
     editItem: false
   }
   handleChange = (e) => {
-    console.log("Handle Change");
+    this.setState({
+      item: e.target.value
+    })
   }
   handleSubmit = (e) => {
-    console.log("handle Submit");
+    e.preventDefault();
+    const newItem = {
+      id: this.state.id,
+      title: this.state.item
+    }
+    const updatedItems = [...this.state.items, newItem]
+    this.setState({
+      items: updatedItems,
+      item: '',
+      id: uuid(),
+      editItem: false
+    }, () => console.log(this.state))
   }
   clearList = () => { console.log('Clear List Method') }
   handleDelete = (id) => {
@@ -29,7 +42,7 @@ class App extends Component {
         <div className="row">
           <div className="col-8 mx-auto col-md-6 mt-5">
             <h3 className="text-capitalize text-center" style={{ color: "teal" }}>
-              add items toDo 😃
+              React ToDo App<span>❤</span>
             </h3>
             <ToDoInput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit} editItem={this.state.editItem} />
             <ToDoList items={this.state.items} clearList={this.clearList} handleDelete={this.handleDelete} handleEdit={this.handleEdit} />

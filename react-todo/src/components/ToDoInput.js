@@ -13,7 +13,7 @@ export default class ToDoInput extends Component {
                   </div>
                   <input type="text" className="form-control text-capitalize" placeholder="Add Items To be done" style={{ border: "none" }} value={item} onChange={handleChange} />
                </div>
-               <button type="submit" className="btn btn-block btn-primary mt-3"><span><i className="fa fa-plus"></i></span> Add Item</button>
+               <button type="submit" className="btn btn-block btn-primary mt-3" style={{ paddingLeft: "10px", alignSelf: "center", }}><span><i className="fa fa-plus"></i></span> Add Item</button>
             </form>
          </div>
       )
