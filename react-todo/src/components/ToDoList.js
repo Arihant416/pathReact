@@ -8,7 +8,7 @@ export default class ToDoList extends Component {
             <h3
                className="text-capitalize text-center"
                style={{ color: "black", fontFamily: "Open Sans" }}>
-               {items.length > 0 ? <div>List of Items<span>😃</span></div> : <div>No items to display<span>🎭</span></div>}
+               {items.length > 0 ? <div>List of Items<span role="img" aria-label="">😃</span></div> : <div>No items to display<span role="img" aria-label="">🎭</span></div>}
             </h3>
             {items.map(item => { return (<ToDoItem key={item.id} title={item.title} handleDelete={() => handleDelete(item.id)} handleEdit={() => handleEdit(item.id)} />) })}
             <button type="button" className="btn btn-danger btn-block text-uppercase mt-5" onClick={clearList}>Clear list</button>
