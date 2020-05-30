@@ -28,11 +28,11 @@ class App extends Component {
       item: '',
       id: uuid(),
       editItem: false
-    }, () => console.log(this.state))
+    })
   }
   clearList = () => { console.log('Clear List Method') }
   handleDelete = (id) => {
-    console.log(`Handle edit ${id}`)
+    console.log(`Handle Delete ${id}`)
   }
   handleEdit = (id) => { console.log(`Handle Edit ${id}`) }
   render() {
